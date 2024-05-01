@@ -3,8 +3,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
+
+# Import data (Make sure to parse dates. Consider setting index column to 'date'.)
 df = pd.read_csv('fcc-forum-pageviews.csv' , index_col='date', parse_dates=True)
+
+# Clean data
 df = df[(df['value'] >= df['value'].quantile(0.025)) & (df['value'] <= df['value'].quantile(0.975))]
+
+# Draw line plot
 def draw_line_plot():
     fig, ax = plt.subplots(figsize=(16, 6))
     ax.plot(df.index, df['value'], color='r')
@@ -13,6 +19,8 @@ def draw_line_plot():
     ax.set_ylabel('Page Views')
     fig.savefig('line_plot.png')
     return fig
+
+# Draw bar plot
 def draw_bar_plot():
     df_bar = df.copy()
     df_bar['year'] = df_bar.index.year
@@ -25,6 +33,8 @@ def draw_bar_plot():
     plt.xticks(rotation=0)
     fig.savefig('bar_plot.png')
     return fig
+
+# Draw box plots
 def draw_box_plot():
     df_box = df.copy()
     df_box.reset_index(inplace=True)
