@@ -6,14 +6,14 @@ import seaborn as sns
 # import data
 pd = pd.read_csv('medical_examination.csv')
 
-# add 'overweight' column
+# create 'overweight' column
 pd['overweight'] = (pd['weight'] / (pd['height'] / 100)**2).apply(lambda x: 1 if x > 25 else 0)
 
-# round down 0 being good and 1 being bad
+# normalize 'cholesterol' and 'gluc' columns
 pd['cholesterol'] = pd['cholesterol'].apply(lambda x: 0 if x == 1 else 1)
 pd['gluc'] = pd['gluc'].apply(lambda x: 0 if x == 1 else 1)
 
-# Draw Categorical Plot
+# draw categorical plot
 def draw_cat_plot():
     df_cat = pd.melt(pd, id_vars=['cardio'], value_vars=['cholesterol', 'gluc', 'smoke', 'alco', 'active', 'overweight'])
     df_cat = df_cat.groupby(['cardio', 'variable', 'value']).size().reset_index(name= 'total')
@@ -22,7 +22,7 @@ def draw_cat_plot():
     fig.savefig('catplot.png')
     return fig
 
-# Draw Heat Map
+# draw heat map
 def draw_heat_map():
     df_heat = pd[(pd['ap_lo'] <= pd['ap_hi']) & (pd['height'] >= pd['height'].quantile(0.025)) & (pd['height'] <= pd['height'].quantile(0.975)) & (pd['weight'] >= pd['weight'].quantile(0.025)) & (pd['weight'] <= pd['weight'].quantile(0.975))]
     corr = df_heat.corr()
