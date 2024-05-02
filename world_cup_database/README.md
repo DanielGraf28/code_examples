@@ -9,7 +9,7 @@ Project made as part of the <b> FreeCodeCamp Relational Databases Beta Certifica
 
 ## Creating the database
 
-Dataset:  <a href="world_cup_database/games.csv"> games.csv </a>
+Dataset:  <a href="https://github.com/DanielGraf28/code_examples/blob/main/world_cup_database/games.csv"> games.csv </a>
 
 Created the database, 'worldcup', and the appropriate tables ('teams' and 'games') on PostgreSQL to visualise the data from games.csv.
 
@@ -19,7 +19,7 @@ Tables:
 - 'games' tracks all matches and scores made by both the winner team and the opponent team (using team_id as the identifier).
 - 'teams' lists all teams that played in the matches.
 
-View: <a href="world_cup_database/initial tables creation.sql"> initial_tables_creation.sql
+View: <a href="https://github.com/DanielGraf28/code_examples/blob/main/world_cup_database/initial%20tables%20creation.sql"> initial_tables_creation.sql
   </a>
 
 ## Automating data insertion and querying with SQL
@@ -27,12 +27,12 @@ Created a Bash script that reads the games.csv data and uses SQL query commands 
 
 Took constraints into consideration when creating the Bash script to insert all winner and opponent teams individually into 'teams' and then into 'games' based on the team_id created.
 
-View: <a href="world_cup_database/insert_data.sh"> insert_data.sh
+View: <a href="https://github.com/DanielGraf28/code_examples/blob/main/world_cup_database/insert_data.sh"> insert_data.sh
   </a>
   
 Finished by writing a Bash script that utilises SQL to query the database and obtain useful values.
 
-View: <a href="world_cup_database/queries.sh"> queries.sh
+View: <a href="https://github.com/DanielGraf28/code_examples/blob/main/world_cup_database/queries.sh"> queries.sh
   </a>
 
-Database dump (after inserting data): <a href="world_cup_database/world_cup.sql"> worldcup.sql </a>
+Database dump (after inserting data): <a href="https://github.com/DanielGraf28/code_examples/blob/main/world_cup_database/world_cup.sql"> worldcup.sql </a>
