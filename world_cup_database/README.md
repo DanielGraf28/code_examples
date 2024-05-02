@@ -1,4 +1,4 @@
-# 💻 Project: WorldCup Database 
+#  Project: WorldCup Database 
 
 
 ## Project goal: 
