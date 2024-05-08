@@ -48,7 +48,7 @@ hide_card_num(nums)
 def count_xo(string):
   xs = string.lower().count('x')
   os = string.lower().count('o')
-  return xs == o
+  return xs == os
 string = input('Enter a string here ')
 count_xo(string)
 
